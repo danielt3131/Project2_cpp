@@ -40,7 +40,12 @@ int loadVolumeData(std::string &filename, std::vector<RoadVolume *> &volumeList)
     fileRead.close();
     return EXIT_SUCCESS;
 }
-
+/**
+ *
+ * @param str the input string
+ * @param delimiter
+ * @return the input string delimited stored in a std::vector
+ */
 std::vector<std::string> split(std::string& str, char delimiter) {
     char *string = new char[str.length() + 1];
     std::vector<std::string> split {};
@@ -56,7 +61,12 @@ std::vector<std::string> split(std::string& str, char delimiter) {
     return split;
 }
 
-
+/**
+ *
+ * @param filename
+ * @param speedList The std::vector cotaining pointers to RoadSpeed objects
+ * @return
+ */
 int loadSpeedData(std::string &filename, std::vector<RoadSpeed *> &speedList) {
     std::ifstream fileRead;
     fileRead.open(filename);

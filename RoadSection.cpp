@@ -52,7 +52,10 @@ void RoadSection::setSpeedAvg(double speedAvg) {
 double RoadSection::calcSpeedAvg() {
     return (roadSpeed->getSpeedSensor1() + roadSpeed->getSpeedSensor2()) / 2.0;
 }
-
+/**
+ * Deallocates memory for roadSpeed and roadVolume
+ *
+ */
 RoadSection::~RoadSection() {
     delete roadVolume;
     delete roadSpeed;
