@@ -22,7 +22,7 @@ RoadSpeed *RoadSection::getRoadSpeed() {
 }
 
 void RoadSection::setRoadSpeed(RoadSpeed *roadSpeed) {
-    RoadSection::roadSpeed = roadSpeed;
+    this->roadSpeed = roadSpeed;
 }
 
 const int RoadSection::getVolumeTotal() {
