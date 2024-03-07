@@ -1,0 +1,13 @@
+# ninja log v5
+0	382	7314760752219419	CMakeFiles/Project2_cpp.dir/main.cpp.obj	9711d310cdce4ce9
+1	220	7314749691082201	CMakeFiles/Project2_cpp.dir/RoadSection.cpp.obj	92e2418ca99029e3
+1	401	7314757848260290	CMakeFiles/Project2_cpp.dir/FileHandler.cpp.obj	3bfab72e7097bf31
+5	201	7314749871077354	CMakeFiles/Project2_cpp.dir/RoadSpeed.cpp.obj	df9be5c0ec283adb
+3	202	7314749998163909	CMakeFiles/Project2_cpp.dir/RoadVolume.cpp.obj	5ab4d4e97dbb1c74
+396	507	7314757248379435	Project2_cpp.exe	1e954a3dbfc1cb71
+4	210	7314771016165985	CMakeFiles/Project2_cpp.dir/RoadVolume.cpp.obj	5ab4d4e97dbb1c74
+2	214	7314771016232488	CMakeFiles/Project2_cpp.dir/RoadSpeed.cpp.obj	df9be5c0ec283adb
+7	216	7314771016247674	CMakeFiles/Project2_cpp.dir/RoadSection.cpp.obj	92e2418ca99029e3
+5	376	7314771017844837	CMakeFiles/Project2_cpp.dir/main.cpp.obj	9711d310cdce4ce9
+0	401	7314771018091724	CMakeFiles/Project2_cpp.dir/FileHandler.cpp.obj	3bfab72e7097bf31
+402	558	7314771019514666	Project2_cpp.exe	1e954a3dbfc1cb71

@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/Daniel/Documents/Programming/Project2-cpp/cmake-build-debug/CMakeFiles/Project2_cpp.dir/embed.manifest"
