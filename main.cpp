@@ -6,7 +6,7 @@
 #include "RoadSpeed.h"
 #include "RoadVolume.h"
 
-void createRoadSections(std::vector<RoadVolume *> &volumeList, std::vector<RoadSpeed *> &speedList) {
+int createRoadSections(std::vector<RoadVolume *> &volumeList, std::vector<RoadSpeed *> &speedList) {
     std::vector<RoadSection *> roadSection;
     for (int i = 0; i < volumeList.size(); i++) {
         for (int j = 0; j < volumeList.size(); ++j) {
@@ -16,11 +16,18 @@ void createRoadSections(std::vector<RoadVolume *> &volumeList, std::vector<RoadS
             }
         }
     }
-    writeRoadSectionData(roadSection);
+    if (writeRoadSectionData(roadSection) == 1) {
+        for (RoadSection *i : roadSection) {
+            delete i;
+        }
+        roadSection.clear();
+        return EXIT_FAILURE;
+    }
     for (RoadSection *i : roadSection) {
         delete i;
     }
     roadSection.clear();
+    return EXIT_SUCCESS;
 }
 
 int main() {
@@ -29,12 +36,21 @@ int main() {
     std::string line;
     std::cout << "Enter Path and Name of Volume Data File" << std::endl;
     std::getline(std::cin, line);
-    loadVolumeData(line, roadVolume);
+    if (loadVolumeData(line, roadVolume) == 1) {
+        std::cout << "Error in reading in volume data" << std::endl;
+        return EXIT_FAILURE;
+    }
     std::cout << "Enter Path and Name of Speed Data File" << std::endl;
     std::getline(std::cin, line);
-    loadSpeedData(line, roadSpeed);
+    if (loadSpeedData(line, roadSpeed) == 1) {
+        std::cout << "Error in reading in speed data" << std::endl;
+        return EXIT_FAILURE;
+    }
     std::cout << "Road Section Data Created" << std::endl;
-    createRoadSections(roadVolume, roadSpeed);
+    if (createRoadSections(roadVolume, roadSpeed) == 1) {
+        std::cout << "Invalid perms use chmod & chown" << std::endl;
+        return EXIT_FAILURE;
+    }
 
     return 0;
 }
