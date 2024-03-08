@@ -17,19 +17,19 @@ private:
 public:
     RoadSpeed(const std::string &date, const std::string &time, double speedSensor1, double speedSensor2);
 
-    const std::string &getDate() const;
+    const std::string &getDate();
 
     void setDate(const std::string &date);
 
-    const std::string &getTime() const;
+    const std::string &getTime();
 
     void setTime(const std::string &time);
 
-    double getSpeedSensor1() const;
+    const double getSpeedSensor1();
 
     void setSpeedSensor1(double speedSensor1);
 
-    double getSpeedSensor2() const;
+    const double getSpeedSensor2();
 
     void setSpeedSensor2(double speedSensor2);
 

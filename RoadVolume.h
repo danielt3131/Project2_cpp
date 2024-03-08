@@ -24,23 +24,23 @@ public:
 
     void setTime(const std::string &time);
 
-    int getVolumeSensor1() const;
+    const int getVolumeSensor1();
 
     void setVolumeSensor1(int volumeSensor1);
 
-    int getVolumeSensor2() const;
+    const int getVolumeSensor2();
 
     void setVolumeSensor2(int volumeSensor2);
 
-    int getVolumeSensor3() const;
+    const int getVolumeSensor3();
 
     void setVolumeSensor3(int volumeSensor3);
 
-    int getVolumeSensor4() const;
+    const int getVolumeSensor4();
 
     void setVolumeSensor4(int volumeSensor4);
 
-    const std::string &getDate() const;
+    const std::string &getDate();
 
     void setDate(const std::string &date);
     std::string getFileData();

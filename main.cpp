@@ -16,39 +16,57 @@ int createRoadSections(std::vector<RoadVolume *> &volumeList, std::vector<RoadSp
             }
         }
     }
+    int status = EXIT_SUCCESS;
     if (writeRoadSectionData(roadSection) == 1) {
-        for (RoadSection *i : roadSection) {
-            delete i;
-        }
-        roadSection.clear();
-        return EXIT_FAILURE;
+        status = EXIT_FAILURE;
     }
     for (RoadSection *i : roadSection) {
         delete i;
     }
     roadSection.clear();
-    return EXIT_SUCCESS;
+    return status;
 }
 
 int main() {
     std::vector<RoadVolume *> roadVolume;
     std::vector<RoadSpeed *> roadSpeed;
     std::string line;
-    std::cout << "Enter Path and Name of Volume Data File" << std::endl;
-    std::getline(std::cin, line);
-    if (loadVolumeData(line, roadVolume) == 1) {
-        std::cout << "Error in reading in volume data" << std::endl;
-        return EXIT_FAILURE;
+    bool hasProcessed = false;
+
+    while (!hasProcessed) {
+        start:
+        std::cout << "Enter Path and Name of Volume Data File" << std::endl;
+        std::getline(std::cin, line);
+        if (loadVolumeData(line, roadVolume) == 1) {
+            std::cout << "Error in reading in volume data" << std::endl;
+            // Deallocate memory and clear vector
+            for (RoadVolume *i : roadVolume) {
+                delete i;
+            }
+            roadVolume.clear();
+            goto start;
+        }
+        std::cout << "Enter Path and Name of Speed Data File" << std::endl;
+        std::getline(std::cin, line);
+        if (loadSpeedData(line, roadSpeed) == 1) {
+            std::cout << "Error in reading in speed data" << std::endl;
+            // Deallocate memory and clear vector
+            for (RoadVolume *i : roadVolume) {
+                delete i;
+            }
+            roadVolume.clear();
+            for (RoadSpeed *i : roadSpeed) {
+                delete i;
+            }
+            roadSpeed.clear();
+        }
+        hasProcessed = true;
     }
-    std::cout << "Enter Path and Name of Speed Data File" << std::endl;
-    std::getline(std::cin, line);
-    if (loadSpeedData(line, roadSpeed) == 1) {
-        std::cout << "Error in reading in speed data" << std::endl;
-        return EXIT_FAILURE;
-    }
+
     std::cout << "Road Section Data Created" << std::endl;
     if (createRoadSections(roadVolume, roadSpeed) == 1) {
         std::cout << "Invalid perms use chmod & chown" << std::endl;
+        std::cout << "Now exiting" << std::endl;
         return EXIT_FAILURE;
     }
 

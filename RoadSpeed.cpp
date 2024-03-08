@@ -11,7 +11,7 @@ RoadSpeed::RoadSpeed(const std::string &date, const std::string &time, double sp
     this->speedSensor2 = speedSensor2;
 }
 
-const std::string &RoadSpeed::getDate() const {
+const std::string &RoadSpeed::getDate() {
     return date;
 }
 
@@ -19,7 +19,7 @@ void RoadSpeed::setDate(const std::string &date) {
     this->date = date;
 }
 
-const std::string &RoadSpeed::getTime() const {
+const std::string &RoadSpeed::getTime() {
     return time;
 }
 
@@ -27,7 +27,7 @@ void RoadSpeed::setTime(const std::string &time) {
     this->time = time;
 }
 
-double RoadSpeed::getSpeedSensor1() const {
+const double RoadSpeed::getSpeedSensor1() {
     return speedSensor1;
 }
 
@@ -35,7 +35,7 @@ void RoadSpeed::setSpeedSensor1(double speedSensor1) {
     this->speedSensor1 = speedSensor1;
 }
 
-double RoadSpeed::getSpeedSensor2() const {
+const double RoadSpeed::getSpeedSensor2() {
     return speedSensor2;
 }
 

@@ -21,7 +21,6 @@ int loadVolumeData(std::string &filename, std::vector<RoadVolume *> &volumeList)
     std::string line;
     std::getline(fileRead, line);
     while (std::getline(fileRead, line)) {
-        //std::getline(fileRead, line);
         std::vector<std::string> delim = split(line,',');
         int month;
         int day;
@@ -30,6 +29,10 @@ int loadVolumeData(std::string &filename, std::vector<RoadVolume *> &volumeList)
             return EXIT_FAILURE;
         }
         year += 2000;
+        if (!((day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 2000 && year <= 2099))) {
+            return EXIT_FAILURE;   // Date in wrong position
+        }
+
         char *pDate = new char[10];
         sprintf(pDate, "%d/%d/%d", month, day, year);
         std::string date(pDate);
@@ -76,13 +79,15 @@ int loadSpeedData(std::string &filename, std::vector<RoadSpeed *> &speedList) {
     std::string line;
     std::getline(fileRead, line);
     while (std::getline(fileRead, line)) {
-        //std::getline(fileRead, line);
         std::vector<std::string> delim = split(line,',');
         int month;
         int day;
         int year;
         if (sscanf(delim[0].c_str(), "%d-%d-%d", &year, &month, &day) != 3) {
-            return EXIT_FAILURE;
+            return EXIT_FAILURE;    // Wrong format
+        }
+        if (!((day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 2000 && year <= 2099))) {
+            return EXIT_FAILURE;   // Date in wrong position
         }
         char *pDate = new char[10];
         sprintf(pDate, "%d/%d/%d", month, day, year);
