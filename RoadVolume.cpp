@@ -62,10 +62,10 @@ void RoadVolume::setDate(const std::string &date) {
 }
 
 std::string RoadVolume::getFileData() {
-    int strSize = std::snprintf(nullptr, 0, "%d,%d,%d,%d", volumeSensor1, volumeSensor2, volumeSensor3, volumeSensor4) + 1; //Calcuate needed space for allocation | From stackoverflow
-    char *pStr = new char[strSize];
+    int strSize = std::snprintf(nullptr, 0, "%d,%d,%d,%d", volumeSensor1, volumeSensor2, volumeSensor3, volumeSensor4) + 1; //Calcuate needed space for allocation
+    char *pStr = new char[strSize]; // Allocate memory for snprintf
     std::snprintf(pStr, strSize,"%d,%d,%d,%d", volumeSensor1, volumeSensor2, volumeSensor3, volumeSensor4);
-    std::string str(pStr, pStr + strSize - 1);
-    delete[] pStr;
-    return str;
+    std::string str(pStr, pStr + strSize - 1); // Create a C++ string from the snprintf
+    delete[] pStr;  // Deallocate memory from snprintf
+    return str; // Return the string
 }

@@ -3,7 +3,11 @@
 //
 
 #include "RoadSection.h"
-
+/**
+ * Constructor
+ * @param roadVolume The pointer to a roadVolume object
+ * @param roadSpeed The pointer to a roadSpeed object
+ */
 RoadSection::RoadSection(RoadVolume *roadVolume, RoadSpeed *roadSpeed) {
     this->roadVolume = roadVolume;
     this->roadSpeed = roadSpeed;
@@ -53,8 +57,8 @@ double RoadSection::calcSpeedAvg() {
     return (roadSpeed->getSpeedSensor1() + roadSpeed->getSpeedSensor2()) / 2.0;
 }
 /**
- * Deallocates memory for roadSpeed and roadVolume
- *
+ * Deconstructor
+ * Deallocates memory for the roadSpeed and roadVolume objects
  */
 RoadSection::~RoadSection() {
     delete roadVolume;

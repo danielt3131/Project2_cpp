@@ -26,7 +26,10 @@ int createRoadSections(std::vector<RoadVolume *> &volumeList, std::vector<RoadSp
     roadSection.clear();
     return status;
 }
-
+/**
+ * Main function -> program launch point
+ * @return the return status
+ */
 int main() {
     std::vector<RoadVolume *> roadVolume;
     std::vector<RoadSpeed *> roadSpeed;

@@ -45,9 +45,9 @@ void RoadSpeed::setSpeedSensor2(double speedSensor2) {
 
 std::string RoadSpeed::getFileData() {
     int strSize = std::snprintf(nullptr, 0, "%.1lf,%.1lf", speedSensor1, speedSensor2) + 1; //Calculate needed space for allocation
-    char *pStr = new char[strSize];
+    char *pStr = new char[strSize]; // Allocate memory for snprintf
     std::snprintf(pStr, strSize,"%.1lf,%.1lf", speedSensor1, speedSensor2);
-    std::string str(pStr, pStr + strSize - 1);
-    delete[] pStr;
-    return str;
+    std::string str(pStr, pStr + strSize - 1);  // Create a C++ string from the snprintf
+    delete[] pStr;  // Deallocate memory
+    return str; // Return the string str
 }
